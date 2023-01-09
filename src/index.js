@@ -1,25 +1,45 @@
 import React from "react";
 import ReactDom from "react-dom/client";
+import "./index.css";
 
-const author = "Collen Hoover"
-const title = "Verity"
-const image = "https://images-na.ssl-images-amazon.com/images/I/41ZLnc34EiL._AC_UL600_SR600,400_.jpg"
+const firstBook = {
+  author: "BARACK OBAMA",
+  title: "A PROMISED LAND",
+  image: "https://m.media-amazon.com/images/I/41nzI1lhIVL._SX327_BO1,204,203,200_.jpg"
+
+}
+
+const secondBook = {
+  author: "MICHELLE OBAMA",
+  title: "THE LIGHT WE CARRY",
+  image: "https://m.media-amazon.com/images/I/41HcM1yzHcL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg"
+
+}
 
 function BookList() {
   return (
-    <section>
-      <Books />
+    <section className="booklist">
+      <Books author={firstBook.author} title={firstBook.title} image={firstBook.image} />
+      <Books author={secondBook.author} title={secondBook.title} image={secondBook.image}>
+        <p>Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Molestiae asperiores ipsa, sed hic
+          eius porro tenetur amet quam eligendi saepe!</p>
+      </Books>
     </section>
   );
 }
 
-const Books = () => {
+const Books = ({ image, author, title, children }) => {
+  //const { image, author, title } = props;//both of the methods work exactly the same
   return (
-    <article>
+    <article className="book">
       <img src={image}
-        alt="" />
+        alt="" width={250} />
       <h1>{author}</h1>
       <h2>{title}</h2>
+      {children}
+
+
     </article>
   )
 }
