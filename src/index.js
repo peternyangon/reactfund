@@ -21,14 +21,16 @@ function BookList() {
   return (
     <section className="booklist">
       {books.map((book) => {
-        return (<Books title={book.title} author={book.author} image={book.image} key={book.id} />)
+        const { author, title, image, id } = book
+        return <Books book={book} key={id} />
+        //return (<Books title={book.title} author={book.author} image={book.image} key={book.id} />)
       })}
 
     </section>
   );
 }
 
-const Books = ({ image, author, title }) => {
+const Books = ({ book: { image, author, title } }) => {
   //const { image, author, title } = props;//both of the methods work exactly the same
   //const {image, author, title } = props.book;
   return (
@@ -81,6 +83,12 @@ root.render(<BookList />);
 //   image: "https://m.media-amazon.com/images/I/41HcM1yzHcL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg"
 
 // }
+
+//render components
+//pass entire object
+//destructuring (object)
+//spread operator
+
 
 
 
